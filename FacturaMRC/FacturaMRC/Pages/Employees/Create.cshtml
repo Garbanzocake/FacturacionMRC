@@ -1,0 +1,69 @@
+﻿@page
+@model FacturaMRC.Pages.Employees.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Employee.IdCard" class="control-label"></label>
+                <input asp-for="Employee.IdCard" class="form-control" />
+                <span asp-validation-for="Employee.IdCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Name" class="control-label"></label>
+                <input asp-for="Employee.Name" class="form-control" />
+                <span asp-validation-for="Employee.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.LastName" class="control-label"></label>
+                <input asp-for="Employee.LastName" class="form-control" />
+                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Phone" class="control-label"></label>
+                <input asp-for="Employee.Phone" class="form-control" />
+                <span asp-validation-for="Employee.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.BirthDay" class="control-label"></label>
+                <input asp-for="Employee.BirthDay" class="form-control" />
+                <span asp-validation-for="Employee.BirthDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Username" class="control-label"></label>
+                <input asp-for="Employee.Username" class="form-control" />
+                <span asp-validation-for="Employee.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Password" class="control-label"></label>
+                <input asp-for="Employee.Password" class="form-control" />
+                <span asp-validation-for="Employee.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.ConfirmPassword" class="control-label"></label>
+                <input asp-for="Employee.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Employee.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

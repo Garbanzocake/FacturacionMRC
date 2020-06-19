@@ -1,0 +1,72 @@
+﻿@page
+@model FacturaMRC.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ExpiredAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].TypeProduct)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpiredAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeProduct.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

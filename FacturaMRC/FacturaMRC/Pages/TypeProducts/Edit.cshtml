@@ -1,0 +1,45 @@
+﻿@page
+@model FacturaMRC.Pages.TypeProducts.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TypeProduct</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TypeProduct.TypeProductID" />
+            <div class="form-group">
+                <label asp-for="TypeProduct.Name" class="control-label"></label>
+                <input asp-for="TypeProduct.Name" class="form-control" />
+                <span asp-validation-for="TypeProduct.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeProduct.Description" class="control-label"></label>
+                <input asp-for="TypeProduct.Description" class="form-control" />
+                <span asp-validation-for="TypeProduct.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeProduct.IvaID" class="control-label"></label>
+                <select asp-for="TypeProduct.IvaID" class="form-control" asp-items="ViewBag.IvaID"></select>
+                <span asp-validation-for="TypeProduct.IvaID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

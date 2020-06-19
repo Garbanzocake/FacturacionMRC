@@ -1,0 +1,42 @@
+﻿@page
+@model FacturaMRC.Pages.Ivas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Iva[0].Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iva[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Iva) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IvaID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IvaID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IvaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

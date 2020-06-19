@@ -1,0 +1,54 @@
+﻿@page
+@model FacturaMRC.Pages.Bills.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill[0].CodeBill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill[0].Customer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bill) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeBill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.IdCard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.IdCard)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BillID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BillID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BillID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
